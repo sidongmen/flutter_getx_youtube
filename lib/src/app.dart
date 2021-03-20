@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_youtube/controller/app_controller.dart';
+import 'package:flutter_getx_youtube/src/controller/app_controller.dart';
+import 'package:flutter_getx_youtube/src/pages/explore.dart';
+import 'package:flutter_getx_youtube/src/pages/home.dart';
+import 'package:flutter_getx_youtube/src/pages/library.dart';
+import 'package:flutter_getx_youtube/src/pages/subscribe.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +13,26 @@ class App extends GetView<AppController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      body: Obx(() {
+        switch (RouteName.values[controller.currentIndex.value]) {
+          case RouteName.Home:
+            return Home();
+            break;
+          case RouteName.Explore:
+            return Explore();
+            break;
+          case RouteName.Subs:
+            return Subscribe();
+            break;
+          case RouteName.Library:
+            return Library();
+            break;
+          case RouteName.Add:
+            // TODO: Handle this case.
+            break;
+        }
+        return Container();
+      }),
       bottomNavigationBar: Obx(
         () => BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -31,7 +54,7 @@ class App extends GetView<AppController> {
                   "assets/svg/icons/compass_on.svg",
                   width: 22,
                 ),
-                label: "search"),
+                label: "explore"),
             BottomNavigationBarItem(
                 icon: Padding(
                   padding: const EdgeInsets.only(top: 8.0),

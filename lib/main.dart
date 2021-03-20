@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_getx_youtube/binding/init_binding.dart';
 import 'package:flutter_getx_youtube/src/app.dart';
+import 'package:flutter_getx_youtube/src/binding/init_binding.dart';
 import 'package:get/get.dart';
 
 void main() {
