@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Obx(() => CustomScrollView(
+              controller: controller.scrollController,
               slivers: [
                 SliverAppBar(title: CustomAppBar(), floating: true, snap: true),
                 SliverList(
